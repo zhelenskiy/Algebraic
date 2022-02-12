@@ -1,10 +1,10 @@
 package rings
 
-import AbelGroup
-import CommutativeMonoid
-import CommutativeRingWithOne
+import structures.AbelGroup
+import structures.CommutativeMonoid
+import structures.CommutativeRingWithOne
 
-object Int32Ring : CommutativeRingWithOne<Int, Int32Ring.Sum, Int32Ring.Multi> {
+object Int32Ring : CommutativeRingWithOne<Int> {
     object Sum : AbelGroup<Int> {
         override val identity: Int = 0
 

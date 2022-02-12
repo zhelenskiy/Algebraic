@@ -1,9 +1,9 @@
 package fields
 
-import AbelGroup
-import Field
+import structures.AbelGroup
+import structures.Field
 
-object DoubleField : Field<Double, DoubleField.Sum, DoubleField.Multi> {
+object DoubleField : Field<Double> {
     object Sum : AbelGroup<Double> {
         override fun invoke(arg1: Double, arg2: Double): Double = arg1 + arg2
 

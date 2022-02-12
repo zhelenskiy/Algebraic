@@ -1,11 +1,11 @@
 package rings
 
-import AbelGroup
-import CommutativeMonoid
-import CommutativeRingWithOne
+import structures.AbelGroup
+import structures.CommutativeMonoid
+import structures.CommutativeRingWithOne
 import java.math.BigInteger
 
-object BigIntRing : CommutativeRingWithOne<BigInteger, BigIntRing.Sum, BigIntRing.Multi> {
+object BigIntRing : CommutativeRingWithOne<BigInteger> {
     object Sum : AbelGroup<BigInteger> {
         override val identity: BigInteger = BigInteger.ZERO
 

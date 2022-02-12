@@ -1,9 +1,9 @@
 package rings
 
-import CommutativeMonoid
-import CommutativeSemiRingWithOne
+import structures.CommutativeMonoid
+import structures.CommutativeSemiringWithOne
 
-object UInt32SemiRing : CommutativeSemiRingWithOne<UInt, UInt32SemiRing.Sum, UInt32SemiRing.Multi> {
+object UInt32Semiring : CommutativeSemiringWithOne<UInt> {
     object Sum : CommutativeMonoid<UInt> {
         override val identity: UInt = 0U
 

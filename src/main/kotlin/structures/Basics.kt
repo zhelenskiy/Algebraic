@@ -1,3 +1,5 @@
+package structures
+
 fun interface Magma<T> {
     operator fun invoke(arg1: T, arg2: T): T
 }

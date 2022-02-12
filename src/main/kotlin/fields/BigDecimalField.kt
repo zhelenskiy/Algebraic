@@ -1,12 +1,11 @@
 package fields
 
-import AbelGroup
-import Field
+import structures.AbelGroup
+import structures.Field
 import java.math.BigDecimal
 import java.math.MathContext
 
-class BigDecimalField(val mathContext: MathContext = MathContext.UNLIMITED) :
-    Field<BigDecimal, BigDecimalField.Sum, BigDecimalField.Multi> {
+class BigDecimalField(val mathContext: MathContext = MathContext.UNLIMITED) : Field<BigDecimal> {
     inner class Sum : AbelGroup<BigDecimal> {
         override fun invoke(arg1: BigDecimal, arg2: BigDecimal): BigDecimal = arg1.add(arg2, mathContext)
 
