@@ -1,11 +1,11 @@
 import structures.*
 
-context (SemiRing<T>)
+context (Semiring<T>)
 @Suppress("UNCHECKED_CAST")
 fun <T> T.power(exponent: ULong): T = when {
     exponent == 0UL -> {
-        val newRing = this@power as? SemiringWithOne<T> // bug this@power = this somewhy
-            ?: throw IllegalArgumentException("${this@power} is not a ring with 1")
+        val newRing = this@Semiring as? SemiringWithOne<T> // bug this@power = this somewhy
+            ?: throw IllegalArgumentException("${this@Semiring} is not a ring with 1")
         with(newRing) { one }
     }
     exponent == 1UL -> this

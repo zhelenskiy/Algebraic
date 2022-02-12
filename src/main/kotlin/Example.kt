@@ -6,16 +6,16 @@ import monoids.Endofunctor
 import monoids.ListMonoid
 import monoids.Monad
 import rings.*
-import structures.SemiRing
+import structures.Semiring
 import structures.foldl
 import structures.plus
 import structures.zero
 
-context(SemiRing<T>)
+context(Semiring<T>)
 fun <T> Iterable<T>.abstractSum(): T = foldl(sum)
 
 // same to function above
-context(SemiRing<T>)
+context(Semiring<T>)
 fun <T> Iterable<T>.abstractSum1(): T {
     var res = zero
     for (element in this) {
@@ -30,8 +30,8 @@ fun main() {
         println(10.0.power(3U))
         println(10.0.power(-3))
         println(10.0.power(3))
-//        println(10.0.power(0)) todo compiler bug fix
-//        println(10.0.power(0U))
+        println(10.0.power(0))
+        println(10.0.power(0U))
     }
     with(FloatField) {
         println(listOf(1.0F, 2.0F, 3.0F, 4.0F).abstractSum())
@@ -48,7 +48,7 @@ fun main() {
     with(UInt32Semiring) {
         println(listOf(1U, 2U, 3U, 4U).abstractSum())
         println(10U.power(3U))
-//        println(10U.power(0U)) todo compiler bug fix
+        println(10U.power(0U))
     }
     with(Int32Ring) {
         println(listOf(1, 2, 3, 4).abstractSum())

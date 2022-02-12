@@ -1,33 +1,33 @@
 package structures
 
-interface SemiRing<T> {
+interface Semiring<T> {
     val sum: CommutativeMonoid<T>
     val multi: Semigroup<T>
 }
 
-context(SemiRing<T>)
+context(Semiring<T>)
 val <T> zero: T
     get() = sum.identity
 
-context(SemiRing<T>)
+context(Semiring<T>)
 operator fun <T> T.plus(other: T): T = sum(this, other)
 
-context(SemiRing<T>)
+context(Semiring<T>)
 operator fun <T> T.times(other: T): T = multi(this, other)
 
-interface SemiringWithOne<T> : SemiRing<T> {
+interface SemiringWithOne<T> : Semiring<T> {
     override val multi: Monoid<T>
 }
 
-interface CommutativeSemiRing<T> : SemiRing<T> {
+interface CommutativeSemiring<T> : Semiring<T> {
     override val multi: CommutativeSemigroup<T>
 }
 
-interface CommutativeSemiringWithOne<T> : SemiringWithOne<T>, CommutativeSemiRing<T> {
+interface CommutativeSemiringWithOne<T> : SemiringWithOne<T>, CommutativeSemiring<T> {
     override val multi: CommutativeMonoid<T>
 }
 
-interface Ring<T> : SemiRing<T> {
+interface Ring<T> : Semiring<T> {
     override val sum: AbelGroup<T>
 }
 
@@ -43,7 +43,7 @@ context(SemiringWithOne<T>)
 val <T> one: T
     get() = multi.identity
 
-interface CommutativeRing<T> : Ring<T>, CommutativeSemiRing<T>
+interface CommutativeRing<T> : Ring<T>, CommutativeSemiring<T>
 
 interface CommutativeRingWithOne<T> : RingWithOne<T>, CommutativeRing<T>, CommutativeSemiringWithOne<T>
 
