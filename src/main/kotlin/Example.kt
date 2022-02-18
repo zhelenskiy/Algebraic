@@ -14,6 +14,9 @@ import structures.zero
 context(Semiring<T>)
 fun <T> Iterable<T>.abstractSum(): T = foldl(sum)
 
+context(Semiring<R>)
+fun <T, R> Iterable<T>.abstractSumOf(f: (T) -> R): R = asSequence().map(f).asIterable().abstractSum()
+
 // same to function above
 context(Semiring<T>)
 fun <T> Iterable<T>.abstractSum1(): T {
